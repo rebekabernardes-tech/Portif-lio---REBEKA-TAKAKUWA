@@ -1,0 +1,286 @@
+:root{
+  --pink:#E7A9AC;
+  --cream:#F7F1E5;
+  --maroon:#6E1F31;
+  --brown-card:#5B2A1D;
+  --text:#2A1712;
+  --badge-bg:#F5EFE2;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Lora',serif;
+  color:var(--text);
+  background:var(--cream);
+  overflow-x:hidden;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar{
+  position:fixed;
+  top:0;left:0;bottom:0;
+  width:139px;                 
+  background:var(--pink);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:32px 0;
+  z-index:10;
+}
+.logo{
+  display:block;
+  text-decoration:none;
+}
+.logo img{
+  width:100px;                
+  display:block;
+}
+
+.sidebar-nav{
+  flex:1;                      
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-evenly;
+  width:100%;
+  margin-top:10px;
+}
+
+
+.badge{
+  display:block;
+  background:none;
+  box-shadow:none;
+  border-radius:0;
+  width:auto;height:auto;
+  text-decoration:none;
+  transition:transform .2s ease;
+}
+.badge:hover{transform:scale(1.08);}
+.badge img{
+  width:80px;                  
+  height:auto;
+  display:block;
+}
+.badge-fallback{font-size:2rem;}
+
+/* ---------- MAIN LAYOUT ---------- */
+main{margin-left:139px;}
+.section{
+  min-height:100vh;
+  padding:64px 72px;
+  display:flex;
+  align-items:center;
+}
+.heading{
+  font-family:'Anton',sans-serif;
+  color:var(--maroon);
+  text-transform:uppercase;
+  font-size:2.6rem;
+  line-height:1.15;
+}
+.heading.big{font-size:3.4rem;}
+.about-text{font-size:1.05rem;line-height:1.65;max-width:60ch;}
+.about-text.small{max-width:45ch;}
+
+/* HERO */
+.hero{justify-content:space-between;gap:48px;}
+.signature{
+  font-family:'Give You Glory',cursive;
+  font-size:8rem;
+  color:var(--brown-card);
+  line-height:.85;
+}
+.signature .sub{
+  display:block;
+  font-family:'Montserrat',sans-serif;
+  font-size:1.2rem;
+  letter-spacing:.4em;
+  color:var(--maroon);
+  margin-top:18px;
+}
+.hero-photo{width:38%;aspect-ratio:4/5;flex-shrink:0;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;}
+.img-missing{
+  background:repeating-linear-gradient(45deg,#ddd,#ddd 10px,#eee 10px,#eee 20px);
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ABOUT */
+.about{flex-direction:column;align-items:flex-start;gap:32px;}
+.about-body{display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap;}
+.about-photo{width:38%;min-width:280px;aspect-ratio:4/3;}
+.about-photo img{width:100%;height:100%;object-fit:cover;}
+
+/* PROJECTS */
+.projects{flex-direction:column;align-items:flex-start;gap:32px;}
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  width:100%;
+}
+.project-card{
+  background:var(--brown-card);
+  aspect-ratio:16/10;
+  display:block;
+  transition:opacity .2s ease;
+}
+.project-card:hover{opacity:.85;}
+.projects-alt{gap:40px;}
+.projects-alt-head{display:flex;justify-content:space-between;gap:40px;width:100%;flex-wrap:wrap;}
+
+.project-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.project-card{
+  position:relative;
+  overflow:hidden;
+}
+
+.project-info{
+  position:absolute;
+  inset:0;                       /* cobre o card inteiro */
+  background:rgba(91,42,29,.92); /* marrom do card com transparência */
+  color:var(--cream);
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:8px;
+  opacity:0;
+  transition:opacity .25s ease;
+}
+.project-card:hover .project-info,
+.project-card:focus-visible .project-info{opacity:1;}
+
+.project-info h3{
+  font-family:'Anton',sans-serif;
+  text-transform:uppercase;
+  font-size:1.3rem;
+  font-weight:400;
+}
+.project-info p{font-size:.9rem;line-height:1.4;}
+.project-tags{
+  font-family:'Montserrat',sans-serif;
+  font-size:.75rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  opacity:.8;
+}
+
+/* CONTACT */
+.contact{gap:48px;align-items:stretch;}
+.contact-left{flex:1;display:flex;flex-direction:column;justify-content:center;gap:24px;}
+.contact-form{
+  flex:1;
+  background:var(--maroon);
+  color:#fff;
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.contact-form label{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.1rem;margin-top:14px;}
+.contact-form input,.contact-form textarea{
+  background:#D9D9D9;
+  border:none;
+  padding:10px 12px;
+  font-family:'Lora',serif;
+  resize:vertical;
+}
+.contact-form button{
+  margin-top:20px;
+  align-self:flex-start;
+  background:var(--cream);
+  color:var(--maroon);
+  border:none;
+  padding:12px 28px;
+  font-family:'Anton',sans-serif;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+
+
+/* FOOTER */
+.site-footer{
+  background:var(--pink);
+  padding:32px 72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+}
+
+.footer-marks{
+  display:flex;
+  flex-direction:column;
+  font-family:'Anton',sans-serif;
+  color:var(--maroon);
+  font-size:1.3rem;
+  line-height:1.1;
+  letter-spacing:.02em;
+  flex-shrink:0;
+}
+
+.footer-bio{
+  font-size:.85rem;
+  line-height:1.4;
+  max-width:28ch;
+}
+
+.footer-links{
+  display:flex;
+  align-items:center;
+  gap:48px;                 
+}
+.footer-links a{display:block;transition:transform .2s ease;}
+.footer-links a:hover{transform:scale(1.08);}
+.footer-links img{
+  width:65px;                
+  height:65px;
+  object-fit:contain;
+  display:block;
+}
+
+.footer-contact h3{
+  font-family:'Anton',sans-serif;
+  color:var(--maroon);
+  text-transform:uppercase;
+  font-size:1.3rem;
+  margin-bottom:6px;
+}
+.footer-contact a{
+  display:block;
+  color:var(--text);
+  text-decoration:none;
+  font-size:.9rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+.sidebar{width:80px;padding:16px 0;}
+.logo img{width:60px;}
+.badge img{width:48px;}
+main{margin-left:80px;}
+  .section{padding:40px 28px;}
+  .signature{font-size:4.2rem;}
+  .hero{flex-direction:column;}
+  .hero-photo{width:100%;}
+  .about-body{flex-direction:column;}
+  .about-photo{width:100%;}
+  .project-grid{grid-template-columns:repeat(2,1fr);}
+  .contact{flex-direction:column;}
+  .site-footer{flex-direction:column;align-items:flex-start;padding:32px 28px;}
+  .footer-links img{width:64px;height:64px;}
+}
+@media (max-width:520px){
+  .project-grid{grid-template-columns:1fr;}
+  .heading{font-size:1.9rem;}
+  .heading.big{font-size:2.4rem;}
+}
